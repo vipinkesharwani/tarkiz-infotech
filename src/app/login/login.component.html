@@ -1,0 +1,24 @@
+<div>
+    <div class="container">
+        <h1>Welcome!</h1>
+        <p>Log in with your data that you entered during your registration</p>
+        <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" class="login-form">
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" ngModel required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" ngModel required>
+            </div>
+            <p class="password-txt">Forgot your password?</p>
+            <button class="btn-signin" type="submit" [disabled]="!loginForm.valid">Log in</button>
+        </form>
+        <div *ngIf="successMessage" class="success-message">
+            {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+        </div>
+    </div>
+</div>
